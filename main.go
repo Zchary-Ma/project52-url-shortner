@@ -4,12 +4,15 @@ import (
 	"fmt"
 	"github.com/spf13/viper"
 	"github.com/zchary-ma/url-shortener/config"
+	"github.com/zchary-ma/url-shortener/storage"
 )
 
 func main() {
 	var configurations config.Configurations
 	loadConfig(&configurations)
-	fmt.Println(configurations)
+	storage := storage.CreateClient(configurations)
+	item, _ := storage.Get("demo:version")
+	fmt.Println(item)
 }
 
 func loadConfig(c *config.Configurations) {

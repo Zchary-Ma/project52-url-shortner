@@ -1,5 +1,5 @@
 redis:
   address:
   password:
-  db: 
+  db:
 

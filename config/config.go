@@ -9,5 +9,5 @@ type Configurations struct {
 type RedisConfig struct {
 	Address  string
 	Password string
-	DB       string
+	DB       int
 }
