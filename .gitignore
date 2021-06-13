@@ -16,3 +16,4 @@
 .vscode
 .env*
 .DS_Store
+config.yml
