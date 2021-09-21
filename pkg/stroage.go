@@ -1,9 +1,8 @@
-package storage
+package pkg
 
 import (
 	"fmt"
 	"github.com/go-redis/redis"
-	"github.com/zchary-ma/url-shortener/config"
 )
 
 type Storage interface {
@@ -16,7 +15,7 @@ type RedisStorage struct {
 	client *redis.Client
 }
 
-func CreateClient(c config.Configurations) *RedisStorage {
+func CreateClient(c Configurations) *RedisStorage {
 	var storage = &RedisStorage{}
 	storage.client = redis.NewClient(&redis.Options{
 		Addr:     c.Redis.Address,

@@ -1,4 +1,4 @@
-package config
+package pkg
 
 // Configurations exported
 type Configurations struct {

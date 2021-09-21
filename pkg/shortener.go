@@ -1,9 +1,8 @@
-package core
+package pkg
 
 import (
 	"fmt"
 	"github.com/teris-io/shortid"
-	"github.com/zchary-ma/url-shortener/storage"
 )
 
 type Shortener interface {
@@ -12,10 +11,10 @@ type Shortener interface {
 }
 
 type Store struct {
-	storage storage.Storage
+	storage Storage
 }
 
-func New(s storage.Storage) *Store {
+func New(s Storage) *Store {
 	return &Store{s}
 }
 
