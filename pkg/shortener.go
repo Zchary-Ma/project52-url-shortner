@@ -46,3 +46,7 @@ func (s *Store) Shorten(url string) (string, error) {
 
 	return id, nil
 }
+
+func (s *Store) Get(key string) (string, error) {
+	return s.storage.Get(key)
+}
