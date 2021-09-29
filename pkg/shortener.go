@@ -5,24 +5,29 @@ import (
 	"github.com/teris-io/shortid"
 )
 
-type Shortener interface {
+type IShortener interface {
 	Shorten(url string) (string, error)
 	Get(key string) (string, error)
 }
 
+// Store NOTE: how to initiate struct with preconfigure
 type Store struct {
 	storage Storage
 }
 
-func New(s Storage) *Store {
-	return &Store{s}
+func NewStore() Store {
+	s := Store{}
+	var configurations Configurations
+	LoadConfig(&configurations)
+	s.storage = CreateClient(configurations)
+	return s
 }
 
 func generateId() (string, error) {
 	return shortid.Generate()
 }
 
-func (s *Store) shorten(url string) (string, error) {
+func (s *Store) Shorten(url string) (string, error) {
 	id, err := generateId()
 	if err != nil {
 		return "", fmt.Errorf("generating ID error: %s", err)

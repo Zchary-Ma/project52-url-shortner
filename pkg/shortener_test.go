@@ -1,7 +1,9 @@
 package pkg
 
 import (
+	"errors"
 	"fmt"
+	"testing"
 )
 
 type MockStorage struct {
@@ -49,3 +51,29 @@ func createUrlStorage(m map[string]string) *Store {
 }
 
 // add test if necessary
+func TestShortenGenerateID(t *testing.T) {
+	tests := []struct {
+		key         string
+		generateID  func() (string, error)
+		shouldError bool
+	}{
+		{"should succeed", func() (string, error) { return "KEY", nil }, false},
+		{"should error", func() (string, error) { return "", errors.New("Error") }, true},
+	}
+	idGenerator := generateId
+	for _, test := range tests {
+		store := createURLStorage(nil)
+		generateID = test.generateID
+
+		_, err := store.Shorten(test.key)
+		if test.shouldError && err == nil {
+			t.Errorf("store.Shorten(%s) expected error, found none", test.key)
+		}
+
+		if !test.shouldError && err != nil {
+			t.Errorf("store.Shorten(%s) found error, expected none: %v", test.key, err)
+		}
+
+	}
+
+}
