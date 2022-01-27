@@ -2,9 +2,10 @@ package server
 
 import (
 	"encoding/json"
+	"net/http"
+
 	"github.com/gorilla/mux"
 	"github.com/zchary-ma/url-shortener/storage"
-	"net/http"
 )
 
 var resource = storage.NewResource()
@@ -40,6 +41,8 @@ func Shorten(w http.ResponseWriter, r *http.Request) {
 	shortened, err := resource.Storage.Get(req.OriginUrl)
 	if err != nil {
 		w.WriteHeader(http.StatusBadRequest)
+		w.Write([]byte(err.Error()))
+		return
 	}
 
 	if shortened == "" {

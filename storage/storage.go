@@ -1,7 +1,5 @@
 package storage
 
-import "errors"
-
 type Storage interface {
 	Get(key string) (string, error)
 	Set(key string, value string) error
@@ -24,7 +22,7 @@ func (s *KvStorage) Get(key string) (string, error) {
 	if val, ok := s.Store[key]; ok {
 		return val, nil
 	}
-	return "", errors.New("key not found")
+	return "", nil
 }
 
 func (s *KvStorage) Set(key string, value string) error {
