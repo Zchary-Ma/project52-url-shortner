@@ -5,8 +5,10 @@
 A url shortening server written in Go.
 ## endpoint
 
-- `POST`:`/api/s/`
-- `GET`:`/api/r/{shortened name}`
+- `GET`:`/api/{shortened}` redirect shortened url
+- `POST`:`/api/s` shorten url 
+- `GET`:`/api/h` health check
+- `GET`:`/` html index page 
 
 ## Bonus
 
