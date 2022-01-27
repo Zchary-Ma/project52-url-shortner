@@ -1,17 +1,12 @@
 # url-shortening-server
 
+[![Go](https://github.com/Zchary-Ma/url-shortening-server/actions/workflows/go.yml/badge.svg?branch=main)](https://github.com/Zchary-Ma/url-shortening-server/actions/workflows/go.yml)
 
-[![Go](https://github.com/Zchary-Ma/project52-url-shortner/actions/workflows/go.yml/badge.svg?branch=main)](https://github.com/Zchary-Ma/project52-url-shortener/actions/workflows/go.yml)
-
-A url shortening server writen in Go.
-
-## How To Start
-
-
+A url shortening server written in Go.
 ## endpoint
 
-- `POST`:`/shorten` 
-- `GET`:`/redirect`
+- `POST`:`/api/s/`
+- `GET`:`/api/r/{shortened name}`
 
 ## Bonus
 
