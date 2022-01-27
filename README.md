@@ -1,14 +1,12 @@
-# simple-url-shortener
+# url-shortening-server
+
 
 [![Go](https://github.com/Zchary-Ma/project52-url-shortner/actions/workflows/go.yml/badge.svg?branch=main)](https://github.com/Zchary-Ma/project52-url-shortener/actions/workflows/go.yml)
 
-A url shortener writing in Go.
+A url shortening server writen in Go.
 
 ## How To Start
 
-1. initiate redis config `config.yml` file in the root directory.(example:`config.yml.exmaple`)
-2. run `go get -u`
-3. run `go run main.go` server will start at default port. `http://localhost:8080` 
 
 ## endpoint
 

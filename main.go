@@ -1,13 +1,23 @@
 package main
 
 import (
-	"github.com/zchary-ma/url-shortener/server"
+	"log"
 	"net/http"
+
+	"github.com/gorilla/mux"
 )
 
+var port = "8080"
+
 func main() {
-	r := http.NewServeMux()
-	r.HandleFunc("/shorten", server.ShortenURL)
-	r.HandleFunc("/redirect", server.URLRedirect)
-	_ = http.ListenAndServe(":8080", r)
+	r := mux.NewRouter()
+	r.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
+		w.Write([]byte("url shortening server"))
+	})
+
+	go func() {
+		log.Printf("server is running on port: %s", port)
+	}()
+
+	http.ListenAndServe(":"+port, r)
 }
