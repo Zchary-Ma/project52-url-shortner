@@ -1,0 +1,12 @@
+.gcloudignore
+.git
+.gitignore
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+*.test
+*.out
+testdata
+*_test.go

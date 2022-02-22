@@ -1,0 +1,6 @@
+runtime: go116
+env: standard
+service: url-shortener-dev
+
+env_variables: 
+  GOOGLE_CLOUD_PROJECT: "jovial-totality-334206"

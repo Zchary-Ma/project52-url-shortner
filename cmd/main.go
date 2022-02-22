@@ -1,11 +1,10 @@
 package main
 
 import (
-	"log"
-	"net/http"
-
 	"github.com/gorilla/mux"
 	"github.com/zchary-ma/url-shortener/server"
+	"log"
+	"net/http"
 )
 
 var port = "8080"
